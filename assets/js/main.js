@@ -26,6 +26,13 @@ function getUsers() {
         apiUsers.appendChild(ulElement)
 
     })
+
+    request.addEventListener('error', function() {
+        const pDesc = document.createElement('p');
+        pDesc.textContent = 'Server Error';
+        
+        apiUsers.appendChild(pDesc);
+    })
     request.send();
 }
 getUsers();
